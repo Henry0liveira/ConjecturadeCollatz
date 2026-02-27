@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Conjectura de Collatz</title>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;700&family=Oswald:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="container">
+
+  <!-- HEADER -->
+  <header>
+    <div class="tag">Problema em Aberto da Matemática</div>
+    <h1>Conjectura<br>de Collatz</h1>
+    <p class="subtitle">// também conhecida como conjectura 3n+1 · problema de Ulam · sequência grandiosa</p>
+  </header>
+
+  <!-- EXPLANATION CARDS -->
+  <div class="explain-grid">
+    <div class="card">
+      <div class="card-num">01</div>
+      <h3>O que é?</h3>
+      <p>A Conjectura de Collatz é um dos problemas não resolvidos mais famosos da matemática. Proposta pelo matemático alemão Lothar Collatz em 1937, ela afirma que qualquer número inteiro positivo, seguindo uma regra simples, sempre chegará ao número 1.</p>
+    </div>
+    <div class="card orange">
+      <div class="card-num">02</div>
+      <h3>Por que é fascinante?</h3>
+      <p>Apesar de sua regra absurdamente simples, nenhum matemático conseguiu provar que ela vale para <em>todos</em> os números. O matemático Paul Erdős disse: "A matemática ainda não está pronta para esse tipo de problema."</p>
+    </div>
+    <div class="card purple">
+      <div class="card-num">03</div>
+      <h3>O que sabemos?</h3>
+      <p>A conjectura foi verificada computacionalmente para números até 2⁶⁸ (aproximadamente 295 quintilhões). Todos chegaram ao 1. Mas uma prova matemática geral ainda é um mistério completamente aberto.</p>
+    </div>
+    <div class="card">
+      <div class="card-num">04</div>
+      <h3>O loop final</h3>
+      <p>Quando chegamos ao 1, a sequência entra em loop eterno: 1 → 4 → 2 → 1 → 4 → 2... Por isso, considera-se que atingir o 1 é o "fim" da sequência. A conjectura diz que isso sempre acontece.</p>
+    </div>
+  </div>
+
+  <!-- FORMULA -->
+  <div class="formula-block">
+    <h3>A Regra — simples assim</h3>
+    <div class="formula">
+      <div class="formula-item">
+        <div class="formula-case">se n é PAR</div>
+        <div class="formula-eq even">n → n / 2</div>
+      </div>
+      <div class="formula-item">
+        <div class="formula-case">se n é ÍMPAR</div>
+        <div class="formula-eq odd">n → 3n + 1</div>
+      </div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- SIMULATOR -->
+  <div class="sim-section">
+    <h2>Simular <span>//</span></h2>
+
+    <div class="input-row">
+      <input type="number" id="numInput" placeholder="Digite um número..." min="1" max="99999999" />
+      <button onclick="simulate()">CALCULAR</button>
+      <button class="secondary" onclick="randomize()">ALEATÓRIO</button>
+    </div>
+    <div class="error-msg" id="errMsg">Por favor, insira um número inteiro positivo entre 1 e 99.999.999.</div>
+
+    <!-- STATS -->
+    <div class="stats-bar" id="statsBar">
+      <div class="stat-item">
+        <div class="stat-val" id="statSteps">0</div>
+        <div class="stat-label">Passos</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-val" id="statPeak">0</div>
+        <div class="stat-label">Valor Máximo</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-val" id="statStart">0</div>
+        <div class="stat-label">Número Inicial</div>
+      </div>
+    </div>
+
+    <!-- CHART -->
+    <div class="chart-wrap" id="chartWrap">
+      <canvas id="myChart" height="280"></canvas>
+    </div>
+
+    <!-- SEQUENCE -->
+    <div class="sequence-wrap" id="seqWrap">
+      <div class="sequence-label">// Sequência Completa</div>
+      <div class="sequence-nums" id="seqNums"></div>
+    </div>
+  </div>
+
+  <footer>
+    <p>Conjectura de Collatz · Proposta em 1937 · Ainda não provada · © 2025</p>
+  </footer>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
